@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Objects Display</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+      background-color: #ccccff;
+    }
+
+    th {
+      background-color: skyblue;
+    }
+
+    img {
+      max-width: 100px;
+      max-height: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Cars Ordered by Price</h2>
+
+  <table id="carTable">
+    <thead>
+      <tr>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Price</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Car data will be dynamically added here -->
+    </tbody>
+  </table>
+
+  <script>
+    // Define an array of car objects
+    const cars = [
+      { brand: "Toyota", model: "Camry", price: 25000, image: "https://imgd.aeplcdn.com/1200x900/n/cw/ec/164951/toyota-camry-left-front-three-quarter4.jpeg?isig=0" },
+      { brand: "Honda", model: "Civic", price: 22000, image: "https://imgd.aeplcdn.com/370x208/n/2hiabsa_1459840.jpg?q=80" },
+      { brand: "Ford", model: "Fusion", price: 27000, image: "https://i.gaw.to/vehicles/photos/40/20/402011-2020-ford-fusion.jpg?640x400" },
+      { brand: "Chevrolet", model: "Malibu", price: 26000, image: "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2024/cars/malibu/01-images/mov/2024-malibu-mov-specialeditions-midnightedition-01.png?imwidth=960" },
+    ];
+
+    // Sort the cars array by price in ascending order
+    cars.sort((a, b) => a.price - b.price);
+
+    // Display the sorted cars in the table
+    const carTableBody = document.querySelector("#carTable tbody");
+
+    cars.forEach(car => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${car.brand}</td>
+        <td>${car.model}</td>
+        <td>$${car.price.toLocaleString()}</td>
+        <td><img src="${car.image}" alt="${car.brand} ${car.model}"></td>
+      `;
+      carTableBody.appendChild(row);
+    });
+  </script>
+
+</body>
+</html>
