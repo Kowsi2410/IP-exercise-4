@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convert Amount to Coins</title>
+</head>
+<body>
+
+  <h2>Convert Amount to Coins</h2>
+
+  <script>
+    function convertToCoins(amount, coinDenominations) {
+      // Sort coin denominations in descending order
+      coinDenominations.sort((a, b) => b - a);
+
+      // Initialize an array to store the result
+      const result = [];
+
+      // Iterate through each coin denomination
+      for (const coin of coinDenominations) {
+        // Calculate the number of coins for the current denomination
+        const count = Math.floor(amount / coin);
+
+        // Add the coins to the result array
+        for (let i = 0; i < count; i++) {
+          result.push(coin);
+        }
+
+        // Update the remaining amount
+        amount %= coin;
+      }
+
+      return result;
+    }
+
+    // Get input from the user
+    const amount = parseInt(prompt("Enter the amount:"));
+    const coinDenominations = [25, 10, 5, 2, 1];
+
+    // Convert the amount to coins and display the result
+    const coins = convertToCoins(amount, coinDenominations);
+    alert(`Amount: ${amount}\nCoins: ${coins.join(', ')}`);
+  </script>
+
+</body>
+</html>
+
