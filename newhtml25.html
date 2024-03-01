@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capitalize First Letter</title>
+</head>
+<body>
+
+  <h2>Capitalize First Letter</h2>
+
+  <script>
+    function capitalizeFirstLetter(inputString) {
+      // Check if the input is not an empty string
+      if (inputString.length === 0) {
+        return "Input is empty.";
+      }
+
+      // Capitalize the first letter and concatenate the rest of the string
+      const result = inputString.charAt(0).toUpperCase() + inputString.slice(1);
+
+      return result;
+    }
+
+    // Get input from the user
+    const inputStr = prompt("Enter a string:");
+
+    // Capitalize the first letter and display the result
+    const capitalizedString = capitalizeFirstLetter(inputStr);
+    alert("Original String: " + inputStr + "\nCapitalized String: " + capitalizedString);
+  </script>
+
+</body>
+</html>
