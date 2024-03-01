@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sum and Product Calculator</title>
+</head>
+<body>
+
+  <h2>Sum and Product Calculator</h2>
+
+  <script>
+    function computeSumAndProduct() {
+      // Get input from the user
+      const inputString = prompt("Enter a list of integers separated by commas:");
+      
+      // Convert the input string into an array of integers
+      const integerArray = inputString.split(",").map(Number);
+
+      // Check if the array is not empty
+      if (integerArray.length === 0 || isNaN(integerArray[0])) {
+        alert("Invalid input. Please enter a list of integers.");
+        return;
+      }
+
+      // Initialize variables for sum and product
+      let sum = 0;
+      let product = 1;
+
+      // Iterate through the array to calculate sum and product
+      for (let i = 0; i < integerArray.length; i++) {
+        sum += integerArray[i];
+        product *= integerArray[i];
+      }
+
+      // Display the results
+      alert("Sum: " + sum + "\nProduct: " + product);
+    }
+
+    // Call the function when the page is loaded
+    computeSumAndProduct();
+  </script>
+
+</body>
+</html>
+
